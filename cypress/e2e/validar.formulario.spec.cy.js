@@ -4,11 +4,13 @@ describe("Acceso al site y envio de formulario ", () => {
     //cuerpo o instrucciones o acciones de la prueba
     cy.visit('https://ljcl79.github.io/primera-pagina-ia-taller-adl/'); //Cypress visita esta web
     cy.get('[name="name"]').type('maribella');
-    cy.get('[name="email"]').type('correo'); //falla correo no valido
+    cy.get('[name="email"]').type('correo@gmail.com'); //falla correo no valido
     cy.get('#message').type('Mensaje');
+    cy.get('#fotos').select('Santiago');
+    cy.get('#notificaciones').check(); //usando metodo check
     cy.get('#enviar_formulario').click();
-    //cy.get('.contactenos').contains('Formulario enviado!');
-    cy.get('.contactenos').should('be.visible'); //usando metodo contains
+    //cy.get('#enviar_formulario').should('be.visible'); //usando metodo contains
+    cy.get('.contactenos').contains('Formulario enviado!').should('not.exist'); //usando metodo contains y should
     });
 
     it("Enviar formulario vacio", () => {
