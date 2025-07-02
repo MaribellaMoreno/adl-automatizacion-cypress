@@ -6,6 +6,6 @@ describe("Acceso al site y envio de formulario ", () => {
     cy.get('[name="name"]');
     cy.get('[name="email"]');
     cy.get('#message');
-    cy.get('#formulario input[type="email"]'); //usando clase con type
+    cy.get('#enviar_formulario"]').click(); //usando metodo click
     });
 });
